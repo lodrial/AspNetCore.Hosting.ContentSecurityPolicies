@@ -1,57 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using AspNetCore.Hosting.ContentSecurityPolicies.Models;
+﻿using AspNetCore.Hosting.ContentSecurityPolicies.Models;
 using AspNetCore.Hosting.ContentSecurityPolicies.Resources;
+
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Text;
 
 namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
 {
     internal static class ContentSecurityHeaderBuilder
     {
-        public static string Build(ContentSecurityPolicy policy)
+        public static string Build([NotNull] ContentSecurityPolicy policy)
         {
             var stringBuilder = new StringBuilder();
-            TryAddPolicySource(policy.DefaultSrc, CspDirectiveResources.DefaultSrc, stringBuilder);
-            TryAddPolicySource(policy.ScriptSrc, CspDirectiveResources.ScriptSrc, stringBuilder);
-            TryAddPolicySource(policy.StyleSrc, CspDirectiveResources.StyleSrc, stringBuilder);
-            TryAddPolicySource(policy.StyleSrcAttr, CspDirectiveResources.StyleSrcAttr, stringBuilder);
-            TryAddPolicySource(policy.StyleSrcElem, CspDirectiveResources.StyleSrcElem, stringBuilder);
-            TryAddPolicySource(policy.ImgSrc, CspDirectiveResources.ImgSrc, stringBuilder);
-            TryAddPolicySource(policy.ConnectSrc, CspDirectiveResources.ConnectSrc, stringBuilder);
-            TryAddPolicySource(policy.FontSrc, CspDirectiveResources.FontSrc, stringBuilder);
-            TryAddPolicySource(policy.ObjectSrc, CspDirectiveResources.ObjectSrc, stringBuilder);
-            TryAddPolicySource(policy.MediaSrc, CspDirectiveResources.MediaSrc, stringBuilder);
-            TryAddPolicySource(policy.ChildSrc, CspDirectiveResources.ChildSrc, stringBuilder);
-            TryAddPolicySource(policy.FormAction, CspDirectiveResources.FormAction, stringBuilder);
-            TryAddPolicySource(policy.FrameAncestors, CspDirectiveResources.FrameAncestors, stringBuilder);
-            TryAddPolicySource(policy.FrameSrc, CspDirectiveResources.FrameSrc, stringBuilder);
-            TryAddPolicySource(policy.ManifestSrc, CspDirectiveResources.ManifestSource, stringBuilder);
-            TryAddPolicySource(policy.WorkerSrc, CspDirectiveResources.WorkerSource, stringBuilder);
-            TryAddSandbox(policy, stringBuilder);
-            if (policy.UpgradeInsecureRequests)
-            {
-                stringBuilder.Append($"{CspDirectiveResources.UpgradeInsecureRequests}; ");
-            }
-
+            TryAddPolicySource(stringBuilder, policy.DefaultSrc, CspDirectiveResources.DefaultSrc);
+            TryAddPolicySource(stringBuilder, policy.ScriptSrc, CspDirectiveResources.ScriptSrc);
+            TryAddPolicySource(stringBuilder, policy.ScriptSrcAttr, CspDirectiveResources.ScriptSrcAttr);
+            TryAddPolicySource(stringBuilder, policy.ScriptSrcElem, CspDirectiveResources.ScriptSrcElem);
+            TryAddPolicySource(stringBuilder, policy.StyleSrc, CspDirectiveResources.StyleSrc);
+            TryAddPolicySource(stringBuilder, policy.StyleSrcAttr, CspDirectiveResources.StyleSrcAttr);
+            TryAddPolicySource(stringBuilder, policy.StyleSrcElem, CspDirectiveResources.StyleSrcElem);
+            TryAddPolicySource(stringBuilder, policy.ImgSrc, CspDirectiveResources.ImgSrc);
+            TryAddPolicySource(stringBuilder, policy.ConnectSrc, CspDirectiveResources.ConnectSrc);
+            TryAddPolicySource(stringBuilder, policy.FontSrc, CspDirectiveResources.FontSrc);
+            TryAddPolicySource(stringBuilder, policy.ObjectSrc, CspDirectiveResources.ObjectSrc);
+            TryAddPolicySource(stringBuilder, policy.MediaSrc, CspDirectiveResources.MediaSrc);
+            TryAddPolicySource(stringBuilder, policy.ChildSrc, CspDirectiveResources.ChildSrc);
+            TryAddPolicySource(stringBuilder, policy.FormAction, CspDirectiveResources.FormAction);
+            TryAddPolicySource(stringBuilder, policy.FrameAncestors, CspDirectiveResources.FrameAncestors);
+            TryAddPolicySource(stringBuilder, policy.FrameSrc, CspDirectiveResources.FrameSrc);
+            TryAddPolicySource(stringBuilder, policy.ManifestSrc, CspDirectiveResources.ManifestSource);
+            TryAddPolicySource(stringBuilder, policy.WorkerSrc, CspDirectiveResources.WorkerSource);
+            TryAddSandbox(stringBuilder, policy);
+            TryUpgradeInsecureRequests(stringBuilder, policy);
             return stringBuilder.ToString().TrimEnd();
         }
 
-        private static void TryAddPolicySource(HashSet<string> policySource, string cspHeaderValue, StringBuilder builder)
+        private static void TryUpgradeInsecureRequests([NotNull] StringBuilder stringBuilder, [NotNull] ContentSecurityPolicy policy)
         {
-            if (policySource.Count > 0)
+            if (policy.UpgradeInsecureRequests)
             {
-                builder.Append(cspHeaderValue);
-                builder.Append($" {string.Join(" ", policySource)}; ");
+                stringBuilder.AppendFormat(CultureInfo.InvariantCulture, "{0}; ", CspDirectiveResources.UpgradeInsecureRequests);
             }
         }
 
-        private static void TryAddSandbox(ContentSecurityPolicy policy, StringBuilder stringBuilder)
+        private static void TryAddPolicySource([NotNull] StringBuilder stringBuilder, [NotNull] HashSet<string> policySource, [NotNull] string cspHeaderValue)
+        {
+            if (policySource.Count > 0)
+            {
+                stringBuilder.AppendFormat(CultureInfo.InvariantCulture, " {0} {1}; ", cspHeaderValue, string.Join(' ', policySource));
+            }
+        }
+
+        private static void TryAddSandbox([NotNull] StringBuilder stringBuilder, [NotNull] ContentSecurityPolicy policy)
         {
             if (policy.Sandbox != null)
             {
-                stringBuilder.Append(CspDirectiveResources.Sandbox);
-                stringBuilder.Append($" {policy.Sandbox.Value}; ");
+                stringBuilder.AppendFormat(CultureInfo.InvariantCulture, " {0} {1}; ", CspDirectiveResources.Sandbox, policy.Sandbox.Value);
             }
         }
     }

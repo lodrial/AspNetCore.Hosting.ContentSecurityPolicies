@@ -1,26 +1,20 @@
 ﻿using AspNetCore.Hosting.ContentSecurityPolicies.Models;
 using AspNetCore.Hosting.ContentSecurityPolicies.Models.Sandbox;
 
-using System;
-
 namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
 {
     public class ContentSecurityPolicyBuilder
     {
-        internal ContentSecurityPolicy Policy { get; private set; } = new ContentSecurityPolicy();
+        internal ContentSecurityPolicy Policy { get; } = new ContentSecurityPolicy();
 
         /// <summary>
         /// The default-src is the default policy for loading content such as JavaScript, Images, CSS, Font's, AJAX requests, Frames, HTML5 Media.
         /// </summary>
-        /// <param name="includeSelf"></param>
-        /// <param name=""></param>
+        /// <param name="sources"></param>
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithDefaultSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.DefaultSrc.UnionWith(sources);
-            }
+            Policy.DefaultSrc.UnionWith(sources);
             return this;
         }
 
@@ -31,24 +25,18 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithScriptSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.ScriptSrc.UnionWith(sources);
-            }
+            Policy.ScriptSrc.UnionWith(sources);
             return this;
         }
 
         /// <summary>
         /// Defines valid sources of styles for inline event handlers. 
         /// </summary>
-        /// <param name="souces"></param>
+        /// <param name="sources"></param>
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithScriptAttributeSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.ScriptSrcAttr.UnionWith(sources);
-            }
+            Policy.ScriptSrcAttr.UnionWith(sources);
             return this;
         }
 
@@ -57,12 +45,9 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// </summary>
         /// <param name="souces"></param>
         /// <returns></returns>
-        public ContentSecurityPolicyBuilder WithScriptElemntsSource(params string[] sources)
+        public ContentSecurityPolicyBuilder WithScriptElementsSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.ScriptSrcElem.UnionWith(sources);
-            }
+            Policy.ScriptSrcElem.UnionWith(sources);
             return this;
         }
 
@@ -73,10 +58,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithStyleSource(params string[] sources)
         {
-            if(sources.Length > 0)
-            {
-                Policy.StyleSrc.UnionWith(sources);
-            }
+            Policy.StyleSrc.UnionWith(sources);
             return this;
         }
 
@@ -87,10 +69,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithStyleAttributeSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.StyleSrcAttr.UnionWith(sources);
-            }
+            Policy.StyleSrcAttr.UnionWith(sources);
             return this;
         }
 
@@ -99,12 +78,9 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// </summary>
         /// <param name="souces"></param>
         /// <returns></returns>
-        public ContentSecurityPolicyBuilder WithStyleElemntsSource(params string[] sources)
+        public ContentSecurityPolicyBuilder WithStyleElementsSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.StyleSrcElem.UnionWith(sources);
-            }
+            Policy.StyleSrcElem.UnionWith(sources);
             return this;
         }
 
@@ -115,10 +91,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithImageSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.ImgSrc.UnionWith(sources);
-            }
+            Policy.ImgSrc.UnionWith(sources);
             return this;
         }
 
@@ -129,10 +102,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithConnectSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.ConnectSrc.UnionWith(sources);
-            }
+            Policy.ConnectSrc.UnionWith(sources);
 
             return this;
         }
@@ -144,10 +114,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithFontSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.FontSrc.UnionWith(sources);
-            }
+            Policy.FontSrc.UnionWith(sources);
             return this;
         }
 
@@ -158,10 +125,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithObjectSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.ObjectSrc.UnionWith(sources);
-            }
+            Policy.ObjectSrc.UnionWith(sources);
 
             return this;
         }
@@ -173,10 +137,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithMediaSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.MediaSrc.UnionWith(sources);
-            }
+            Policy.MediaSrc.UnionWith(sources);
 
             return this;
         }
@@ -187,10 +148,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithChildSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.ChildSrc.UnionWith(sources);
-            }
+            Policy.ChildSrc.UnionWith(sources);
 
             return this;
         }
@@ -202,10 +160,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithFormAction(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.FormAction.UnionWith(sources);
-            }
+            Policy.FormAction.UnionWith(sources);
 
             return this;
         }
@@ -217,10 +172,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithFrameAncestors(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.FrameAncestors.UnionWith(sources);
-            }
+            Policy.FrameAncestors.UnionWith(sources);
 
             return this;
         }
@@ -232,10 +184,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Builders
         /// <returns></returns>
         public ContentSecurityPolicyBuilder WithFrameSource(params string[] sources)
         {
-            if (sources.Length > 0)
-            {
-                Policy.FrameSrc.UnionWith(sources);
-            }
+            Policy.FrameSrc.UnionWith(sources);
 
             return this;
         }

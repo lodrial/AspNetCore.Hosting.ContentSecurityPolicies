@@ -1,4 +1,5 @@
 ﻿using AspNetCore.Hosting.ContentSecurityPolicies.Models.Sandbox;
+using AspNetCore.Hosting.ContentSecurityPolicies.Resources;
 
 using System.Collections.Generic;
 
@@ -6,6 +7,24 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Models
 {
     public class ContentSecurityPolicy
     {
+        /// <summary>
+        /// Default Constructor.
+        /// Uses 'self' as the default policy source
+        /// </summary>
+        public ContentSecurityPolicy() : this(ContentSecurityPolicyResources.Self)
+        {
+        }
+
+
+        /// <summary>
+        /// Allows a CDN to be set as the default policy source
+        /// </summary>
+        /// <param name="cdnBasePath"></param>
+        public ContentSecurityPolicy(string cdnBasePath)
+        {
+            DefaultSrc.Add(cdnBasePath);
+        }
+
         /// <summary>
         /// Defines valid sources for web workers and nested browsing contexts loaded using elements such as <frame> and <iframe> 
         /// </summary>
@@ -71,7 +90,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Models
         /// <summary>
         /// Defines valid sources for JavaScript inline event handlers.
         /// </summary>
-        public HashSet<string> ScriptSrcAttr { get;set; } = new HashSet<string>();
+        public HashSet<string> ScriptSrcAttr { get; set; } = new HashSet<string>();
         /// <summary>
         /// Defines valid sources for JavaScript <script> elements.
         /// </summary>
