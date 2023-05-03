@@ -117,37 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cloudflare" xml:space="preserve">
-    <value>https://cdnjs.cloudflare.com</value>
+  <data name="AllowForms" xml:space="preserve">
+    <value>allow-forms</value>
   </data>
-  <data name="GoogleApis" xml:space="preserve">
-    <value>https://www.googleapis.com</value>
+  <data name="AllowModals" xml:space="preserve">
+    <value>allow-modals</value>
   </data>
-  <data name="GoogleFonts" xml:space="preserve">
-    <value>https://fonts.gstatic.com</value>
+  <data name="AllowOrientationLock" xml:space="preserve">
+    <value>allow-orientation-lock</value>
   </data>
-  <data name="GoogleFontStyles" xml:space="preserve">
-    <value>https://fonts.googleapis.com</value>
+  <data name="AllowPointerLock" xml:space="preserve">
+    <value>allow-pointer-lock</value>
   </data>
-  <data name="JsDeliver" xml:space="preserve">
-    <value>https://cdn.jsdelivr.net</value>
+  <data name="AllowPopups" xml:space="preserve">
+    <value>allow-popups</value>
   </data>
-  <data name="MicrosoftGraph" xml:space="preserve">
-    <value>https://graph.microsoft.com</value>
+  <data name="AllowPopupsToEscapeSandbox" xml:space="preserve">
+    <value>allow-popups-to-escape-sandbox</value>
   </data>
-  <data name="MicrosoftLogin" xml:space="preserve">
-    <value>https://login.microsoftonline.com</value>
+  <data name="AllowPresentation" xml:space="preserve">
+    <value>allow-presentation</value>
   </data>
-  <data name="MicrosoftTeams" xml:space="preserve">
-    <value>https://teams.microsoft.com</value>
+  <data name="AllowSameOrigin" xml:space="preserve">
+    <value>allow-same-origin</value>
   </data>
-  <data name="MicrosoftTeamsWildcard" xml:space="preserve">
-    <value>https://*.teams.microsoft.com</value>
+  <data name="AllowScripts" xml:space="preserve">
+    <value>allow-scripts</value>
   </data>
-  <data name="Skype" xml:space="preserve">
-    <value>https://*.skype.com</value>
-  </data>
-  <data name="StackPathBootstrap" xml:space="preserve">
-    <value>https://stackpath.bootstrapcdn.com</value>
+  <data name="AllowTopNavigation" xml:space="preserve">
+    <value>allow-top-navigation</value>
   </data>
 </root>

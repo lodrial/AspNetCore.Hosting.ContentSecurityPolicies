@@ -14,7 +14,7 @@
 		<PackageIcon>security-icon.png</PackageIcon>
 		<RepositoryUrl>https://github.com/lodrial/AspNetCore.Hosting.ContentSecurityPolicies</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<AssemblyVersion>1.2.0.0</AssemblyVersion>
+		<AssemblyVersion>1.3.0.0</AssemblyVersion>
 		<FileVersion>$(AssemblyVersion)</FileVersion>
 		<Version>$(AssemblyVersion)</Version>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -26,7 +26,7 @@
 		<PackageTags>Content Security Policy;CSP</PackageTags>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageReleaseNotes>Cleaned up some logic and revised policy constructor</PackageReleaseNotes>
+		<PackageReleaseNotes>Optimizations and revised sandbox API</PackageReleaseNotes>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
@@ -63,6 +63,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>ContentSecurityPolicyResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\ContentSecuritySandboxResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ContentSecuritySandboxResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\ContentSecuritySourceResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -84,6 +89,10 @@
 	  <EmbeddedResource Update="Resources\ContentSecurityPolicyResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ContentSecurityPolicyResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\ContentSecuritySandboxResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ContentSecuritySandboxResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\ContentSecuritySourceResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

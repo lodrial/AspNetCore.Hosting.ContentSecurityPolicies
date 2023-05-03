@@ -22,25 +22,24 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ContentSecuritySourceResources {
+    internal class ContentSecuritySandboxResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ContentSecuritySourceResources() {
+        internal ContentSecuritySandboxResources() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.Hosting.ContentSecurityPolicies.Resources.ContentSecuritySourceResourc" +
-                            "es", typeof(ContentSecuritySourceResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AspNetCore.Hosting.ContentSecurityPolicies.Resources.ContentSecuritySandboxResources", typeof(ContentSecuritySandboxResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -52,7 +51,7 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -62,101 +61,92 @@ namespace AspNetCore.Hosting.ContentSecurityPolicies.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://cdnjs.cloudflare.com.
+        ///   Looks up a localized string similar to allow-forms.
         /// </summary>
-        public static string Cloudflare {
+        internal static string AllowForms {
             get {
-                return ResourceManager.GetString("Cloudflare", resourceCulture);
+                return ResourceManager.GetString("AllowForms", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.googleapis.com.
+        ///   Looks up a localized string similar to allow-modals.
         /// </summary>
-        public static string GoogleApis {
+        internal static string AllowModals {
             get {
-                return ResourceManager.GetString("GoogleApis", resourceCulture);
+                return ResourceManager.GetString("AllowModals", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://fonts.gstatic.com.
+        ///   Looks up a localized string similar to allow-orientation-lock.
         /// </summary>
-        public static string GoogleFonts {
+        internal static string AllowOrientationLock {
             get {
-                return ResourceManager.GetString("GoogleFonts", resourceCulture);
+                return ResourceManager.GetString("AllowOrientationLock", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://fonts.googleapis.com.
+        ///   Looks up a localized string similar to allow-pointer-lock.
         /// </summary>
-        public static string GoogleFontStyles {
+        internal static string AllowPointerLock {
             get {
-                return ResourceManager.GetString("GoogleFontStyles", resourceCulture);
+                return ResourceManager.GetString("AllowPointerLock", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://cdn.jsdelivr.net.
+        ///   Looks up a localized string similar to allow-popups.
         /// </summary>
-        public static string JsDeliver {
+        internal static string AllowPopups {
             get {
-                return ResourceManager.GetString("JsDeliver", resourceCulture);
+                return ResourceManager.GetString("AllowPopups", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://graph.microsoft.com.
+        ///   Looks up a localized string similar to allow-popups-to-escape-sandbox.
         /// </summary>
-        public static string MicrosoftGraph {
+        internal static string AllowPopupsToEscapeSandbox {
             get {
-                return ResourceManager.GetString("MicrosoftGraph", resourceCulture);
+                return ResourceManager.GetString("AllowPopupsToEscapeSandbox", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://login.microsoftonline.com.
+        ///   Looks up a localized string similar to allow-presentation.
         /// </summary>
-        public static string MicrosoftLogin {
+        internal static string AllowPresentation {
             get {
-                return ResourceManager.GetString("MicrosoftLogin", resourceCulture);
+                return ResourceManager.GetString("AllowPresentation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://teams.microsoft.com.
+        ///   Looks up a localized string similar to allow-same-origin.
         /// </summary>
-        public static string MicrosoftTeams {
+        internal static string AllowSameOrigin {
             get {
-                return ResourceManager.GetString("MicrosoftTeams", resourceCulture);
+                return ResourceManager.GetString("AllowSameOrigin", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://*.teams.microsoft.com.
+        ///   Looks up a localized string similar to allow-scripts.
         /// </summary>
-        public static string MicrosoftTeamsWildcard {
+        internal static string AllowScripts {
             get {
-                return ResourceManager.GetString("MicrosoftTeamsWildcard", resourceCulture);
+                return ResourceManager.GetString("AllowScripts", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://*.skype.com.
+        ///   Looks up a localized string similar to allow-top-navigation.
         /// </summary>
-        public static string Skype {
+        internal static string AllowTopNavigation {
             get {
-                return ResourceManager.GetString("Skype", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://stackpath.bootstrapcdn.com.
-        /// </summary>
-        public static string StackPathBootstrap {
-            get {
-                return ResourceManager.GetString("StackPathBootstrap", resourceCulture);
+                return ResourceManager.GetString("AllowTopNavigation", resourceCulture);
             }
         }
     }
